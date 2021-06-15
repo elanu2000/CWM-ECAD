@@ -29,7 +29,6 @@ initial
 	end
 //Todo: User logic
 initial begin
-$display("enters");
 rst = 1;
 change = 0;
 on_off = 0;
@@ -67,7 +66,7 @@ end
 end
 //Todo: Finish test, check for success
 initial begin 
-	#(100*CLK_PERIOD)
+	#(50*CLK_PERIOD)
 	if(error == 0)
 		$display("TEST PASSED!");
 	else
