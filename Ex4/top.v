@@ -22,6 +22,10 @@ module led(
 	input rst, clk, button,
 	output reg [2:0] colour
 	);
+always @(posedge clk) begin
+	if (rst == 1 || colour == 3'b000 || colour == 3'b111)
+		colour = 3'b001;
+end
 always @(posedge button) begin
 	case(colour)
           3'b001: colour = 3'b010;
