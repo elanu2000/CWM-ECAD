@@ -54,21 +54,25 @@ forever begin
                         $display("Test FAILED with change001");
                         error = 1;
                 end
+	else
 	if (prev == 3'b010)
                 if (colour != 3'b011) begin
                         $display("Test FAILED with change010");
                         error = 1;
                 end
+	else
 	if (prev == 3'b011)
                 if (colour != 3'b100) begin
                         $display("Test FAILED with change011");
                         error = 1;
                 end
+	else
 	if (prev == 3'b100)
                 if (colour != 3'b101) begin
                         $display("Test FAILED with change100");
                         error = 1;
                 end
+	else
 	if (prev == 3'b101)
                 if (colour != 3'b110) begin
                         $display("Test FAILED with change101");
