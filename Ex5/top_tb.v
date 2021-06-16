@@ -68,7 +68,22 @@ initial begin
         end
 temperature = 5'b10000;       
 forever begin
-	
+	#(CLK_PERIOD)
+	if (temperature <= 5'b10010) begin
+		if (heating != 1) begin
+			$display("TEST FAILED heating!");
+			error = 1;
+		end
+	end
+	else
+	if(temperature >= 5'b10110) begin
+		if(cooling != 1) begin
+			$display("TEST FAILED cooling!");
+                        error =	1;
+                end
+	end
+	temperature = temperature + heating - cooling;
+end
 end
 initial begin
 	#(50 * CLK_PERIOD)
