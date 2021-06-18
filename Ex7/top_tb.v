@@ -39,12 +39,6 @@ initial begin
         $display("TEST FAILED!");
         error = 1;
     end
-    sel = 1;
-    #(3*CLK_PERIOD)
-    if (light != 24'hff) begin
-        $display("TEST FAILED!");
-        error = 1;
-    end
     prev_light = light;
     rst = 0;
     #(CLK_PERIOD)

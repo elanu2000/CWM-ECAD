@@ -14,4 +14,36 @@
 //           light [23:0]
 //////////////////////////////////////////////////////////////////////////////////
 
+`timescale 1ns / 100ps
 
+module lights_selector (
+    //Todo: add ports
+    input clk, sel, rst, button,
+    output light 
+    );
+
+wire [2:0] colour;
+wire [23:0] rgb;
+wire [23:0] light;
+
+led ex4(
+	.clk(clk),
+	.rst(rst),
+	.button(button),
+	.colour(colour)
+);
+
+rgb ex6(
+    .clk(clk),
+    .colour(colour),
+    .enable(1'b1),
+    .rgb(rgb)
+);
+
+doorbell ex2(
+    .a(24'hffffff),
+    .b(rgb),
+    .sel(sel),
+    .out(light)
+);
+endmodule
