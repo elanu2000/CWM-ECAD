@@ -95,7 +95,7 @@ initial begin
 	$finish;
 end
 top top(.clk_p(clk_p),.clk_n(clk_n),
- .temperature_0(temperature[0]), .heating(heating), .cooling(cooling)
+ .temperature_0(temperature[0]), .heating(heating), .cooling(cooling),
 .temperature_1(temperature[1]),
 .temperature_2(temperature[2]),
 .temperature_3(temperature[3]),
