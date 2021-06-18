@@ -17,6 +17,10 @@ module top(
     input clk_p,
     input clk_n,
      //Todo: add all other ports besides clk_n and clk_p 
+	input temperature_0, temperature_1, temperature_2, temperature_3,
+	input temperature_4,
+	input rst,
+	output heating, cooling
    );
     
 
@@ -37,5 +41,8 @@ module top(
       );
 
 //Add logic here
-
+wire [4:0] temperature = {temperature_4, temperature_3, temperature_2, temperature_1, temperature_0};
+air mod(
+.clk(clk), .temperature(temperature), 
+.heating(heating), .cooling(cooling));
 endmodule
